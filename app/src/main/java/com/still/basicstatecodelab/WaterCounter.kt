@@ -1,5 +1,6 @@
 package com.still.basicstatecodelab
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -29,22 +30,8 @@ fun StateLessCounter(count: Int, onIncrement: () -> Unit, modifier: Modifier = M
         if (count > 0) {
             Text("You've had $count glasses.")
         }
-        Button(onClick = { onIncrement }, Modifier.padding(top = 8.dp), enabled = count < 10) {
+        Button(onClick = { onIncrement() }, Modifier.padding(top = 8.dp), enabled = count < 10) {
             Text("Add one")
-        }
-    }
-}
-
-@Preview
-@Composable
-fun WaterCounterPreview() {
-    BasicStateCodelabTheme {
-        // A surface container using the 'background' color from the theme
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
-        ) {
-            WellnessScreen()
         }
     }
 }
